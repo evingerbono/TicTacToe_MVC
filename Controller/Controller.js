@@ -4,12 +4,17 @@ import Jatek from "../View/JatekView.js";
 class Controller {
     constructor() {
         this.MODEL = new Model();
-        this.JATEKMEZO = new Jatek($("article"));
+        for (let index = 0; index < 9; index++) {
+            this.JATEKMEZO = new Jatek($(".jatekT"),index);  
+        }
+        $(window).on("kivalaszt", (event) => {  
+            this.MODEL.setAllapot(event.detail.getIndex());
+            event.detail.setErtek(this.MODEL.getErtek());
 
-        $(window).on("kivalaszt", () => {
-            this.MODEL.setAllapot();
-            this.JATEKMEZO.setErtek(this.MODEL.getErtek());
-        })
+            if (this.MODEL.getvegeVanE()!=="Tovább") {
+                console.log(this.MODEL.getvegeVanE());
+            }
+        });
     }
 }
 export default Controller;
