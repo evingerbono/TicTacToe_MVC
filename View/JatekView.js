@@ -1,0 +1,6 @@
+class Jatek{
+
+    constructor(szuloElem){
+        
+    }
+}
