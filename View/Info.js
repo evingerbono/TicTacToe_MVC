@@ -13,5 +13,13 @@ class Info {
     setJatekos(jel) {
         this.infoElem.find("span").html(jel);
     }
+
+    setGyoztes(jel) {
+        this.infoElem.html(jel + " nyert!");
+    }
+
+    setDontetlen() {
+        this.infoElem.html("Döntetlen!");
+    }
 }
 export default Info;

@@ -17,8 +17,13 @@ class Controller {
 
             this.INFO.setJatekos(this.MODEL.getErtek());
 
-            if (this.MODEL.getvegeVanE() !== "Tovább") {
-                console.log(this.MODEL.getvegeVanE());
+            const eredmeny = this.MODEL.getvegeVanE();
+            if (eredmeny === "O nyert") {
+                this.INFO.setGyoztes("O");
+            } else if (eredmeny === "X nyert") {
+                this.INFO.setGyoztes("X");
+            } else if (eredmeny === "Döntetlen") {
+                this.INFO.setDontetlen();
             }
         });
     }

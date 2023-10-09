@@ -21,16 +21,20 @@ class Model {
         return this.#allapot;
     }
     getvegeVanE() {
-        let vEll=this.#vizszintesGyozelem();
-        if (vEll.indexOf("OOO">=0)) {
-            return console.log("O nyert");
-        }else if(vEll.indexOf("XXX">=0)){
-            return console.log("X nyert");
+        if (this.#lepesSzam < 9) {
+            return "Tovább";
+        }
+    
+        let vEll = this.#vizszintesGyozelem();
+        if (vEll.indexOf("OOO") >= 0) {
+            return "O nyert";
+        } else if (vEll.indexOf("XXX") >= 0) {
+            return "X nyert";
         }
         if (this.#lepesSzam === 9) {
-            return console.log("Döntetlen");
+            return "Döntetlen";
         } else {
-            return console.log("Tovább");
+            return "Tovább";
         }
     }
     #vizszintesGyozelem() {
